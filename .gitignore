@@ -110,3 +110,5 @@ UpgradeLog*.XML
 # IntelliJ IDEA
 .idea/*
 BackboneMiniprosjekt/BackboneMiniprosjekt.iml
+/.settings
+/.project
