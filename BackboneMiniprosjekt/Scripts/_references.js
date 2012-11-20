@@ -5,4 +5,5 @@
 /// <reference path="collections/aksjoner.js" />
 /// <reference path="models/aksjon.js" />
 /// <reference path="views/aksjonView.js" />
+/// <reference path="views/opprettAksjonView.js" />
 /// <reference path="app.js" />
