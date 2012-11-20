@@ -5,14 +5,13 @@ var app = app || {};
     "use strict";
 
     app.AksjonView = Backbone.View.extend({
-        el: ".aksjoner p", 
+        el: ".aksjoner p",
 
         render: function () {
-            debugger;
            this.$el.html(this.collection.models[0].get("navn"));
            return this;
        }
-        
+
     });
 
 })();
