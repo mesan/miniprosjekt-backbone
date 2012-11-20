@@ -6,6 +6,7 @@ app.Router = Backbone.Router.extend({
 
   routes: {
     "": "visAksjoner",
+    "aksjon/opprett": "opprettAksjon",
     "aksjon/:id": "visAksjon"
   },
 
@@ -23,6 +24,11 @@ app.Router = Backbone.Router.extend({
   visAksjon: function() {
     // TODO: Gjør noe mer fornuftig her :)
     console.log("i visAksjon");
+  },
+
+  opprettAksjon: function() {
+    var opprettAksjon = new app.OpprettAksjonView();
+    opprettAksjon.render();
   }
 });
 
