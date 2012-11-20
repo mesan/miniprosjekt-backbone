@@ -6,6 +6,6 @@ var app = app || {};
 
     app.Aksjoner = Backbone.Collection.extend({
         model: app.AksjonModel,
-        
+        url: app.config.apiBaseUrl + "/aksjoner"
     });
 })();

@@ -7,7 +7,8 @@ var app = app || {};
     app.AksjonModel = Backbone.Model.extend({
         defaults: {
             navn: ''
-        }
-    })
+        },
+        urlRoot: app.config.apiBaseUrl + "/aksjoner"
+    });
 
 })();
