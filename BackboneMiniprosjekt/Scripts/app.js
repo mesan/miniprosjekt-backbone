@@ -7,7 +7,8 @@ app.Router = Backbone.Router.extend({
   routes: {
     "": "visAksjoner",
     "aksjon/opprett": "opprettAksjon",
-    "aksjon/:id": "visAksjon"
+    "aksjon/:id": "visAksjon",
+    "deltaker" : "visDeltakere"
   },
 
   visAksjoner: function() {
@@ -29,6 +30,11 @@ app.Router = Backbone.Router.extend({
   opprettAksjon: function() {
     var opprettAksjon = new app.OpprettAksjonView();
     opprettAksjon.render();
+  },
+  
+  visDeltakere: function(){
+	  var view = new app.DeltakerView();
+	  view.render();
   }
 });
 

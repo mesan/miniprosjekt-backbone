@@ -4,7 +4,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="Content/main.min.css" rel="stylesheet" />
+    <link href="Content/main.css" rel="stylesheet" />
     <script src="Scripts/libs/underscore.js"></script>
     <script src="Scripts/libs/jquery-1.7.2.js"></script>
     <script src="Scripts/libs/bootstrap.js"></script>
@@ -12,8 +12,11 @@
 
     <script src="Scripts/config.js"></script>
     <script src="Scripts/models/aksjon.js"></script>
+    <script src="Scripts/models/deltaker.js"></script>
     <script src="Scripts/collections/aksjoner.js"></script>
+    <script src="Scripts/collections/deltakere.js"></script>
     <script src="Scripts/views/aksjonView.js"></script>
+    <script src="Scripts/views/deltakerView.js"></script>
     <script src="Scripts/views/opprettAksjonView.js"></script>
     <script src="Scripts/app.js"></script>
 
@@ -61,23 +64,25 @@
 
     <div class="container">
 
-
-        <div class="aksjoner">
-            <h1>Aksjoner</h1>
-
-            <p></p>
-
-            <table class="table table-hover">
-                <tr><td>Aksjon</td></tr>
-
-            </table>
+		<div class= "content">
+	        <div class="aksjoner">
+	            <h1>Aksjoner</h1>
+	
+	            <p></p>
+	
+	            <table class="table table-hover">
+	                <tr><td>Aksjon</td></tr>
+	
+	            </table>
+	        </div>
+	        
+	
+	        <hr />
+	
+	        <footer>
+	            <p>&copy; Mesan 2012</p>
+	        </footer>
         </div>
-
-        <hr />
-
-        <footer>
-            <p>&copy; Mesan 2012</p>
-        </footer>
 
     </div>
     <!-- /container -->
