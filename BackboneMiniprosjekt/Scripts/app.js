@@ -8,7 +8,8 @@ app.Router = Backbone.Router.extend({
     "": "visAksjoner",
     "aksjon/opprett": "opprettAksjon",
     "aksjon/:id": "visAksjon",
-    "deltaker" : "visDeltakere"
+    "deltaker" : "visDeltakere",
+    "deltaker/:id" : "visDeltaker"
   },
 
   visAksjoner: function() {
@@ -33,7 +34,12 @@ app.Router = Backbone.Router.extend({
   },
   
   visDeltakere: function(){
-	  var view = new app.DeltakerView();
+	  console.log("i visDeltakere");
+  },
+  
+  visDeltaker: function(pid){
+	  var deltaker = new app.DeltakerModel({id:pid});
+	  var view = new app.DeltakerView({model: deltaker});
 	  view.render();
   }
 });
