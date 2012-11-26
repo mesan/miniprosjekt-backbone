@@ -4,7 +4,7 @@ var app = app || {};
 (function () {
     "use strict";
 
-    app.AksjonView = Backbone.View.extend({
+    app.AksjonerView = Backbone.View.extend({
         el: ".aksjoner p",
 
         render: function () {

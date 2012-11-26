@@ -17,7 +17,7 @@ app.Router = Backbone.Router.extend({
     var aksjoner = new app.Aksjoner();
     aksjoner.fetch({
         success: function () {
-            var view = new app.AksjonView({ collection: aksjoner });
+            var view = new app.AksjonerView({ collection: aksjoner });
             view.render();
         }
     });

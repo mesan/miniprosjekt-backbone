@@ -8,9 +8,15 @@ var app = app || {};
         el: ".aksjoner p",
 
         render: function () {
+<<<<<<< HEAD
+           this.$el.html(this.collection.models[0].get("navn"));
+           return this;
+       }
+=======
             this.$el.html(this.collection.models[0].get("navn"));
             return this;
         }
+>>>>>>> Lagt til aksjonerView og Handlebars
 
     });
 

@@ -7,3 +7,4 @@
 /// <reference path="views/aksjonView.js" />
 /// <reference path="views/opprettAksjonView.js" />
 /// <reference path="app.js" />
+/// <reference path="libs/handlebars.js" />
