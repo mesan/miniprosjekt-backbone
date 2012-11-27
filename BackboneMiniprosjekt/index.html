@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="Content/main.css" rel="stylesheet" />
-    
+
     <title>Miniprosjekt - Backbone.js</title>
 </head>
 <body>
@@ -69,7 +69,7 @@
 
     </div>
     <!-- /container -->
-     
+
 <script id="aksjoner-template" type="text/x-handlebars-template">
   <table class="table table-striped">
   <thead><tr><th>Navn</th><th>Beskrivelse</th></tr></thead>
@@ -78,15 +78,27 @@
         <tr><td><a href='#aksjon/{{ id }}'>{{ navn }}</a> </td><td>{{ beskrivelse }}</td></tr>
       {{/each}}
   </tbody>
-  </table>  
-        </script>
-    
+  </table>
+</script>
+
+    <script id="opprett-template" type="text/x-handlebars-template">
+      <form>
+        <h3>Opprett ny aksjon: </h3>
+        Navn: <input type="text" name="navn"/>
+        Direktemeldinger: <input type="checkbox" name="tillatP2Pmeldinger"/> <br/>
+        Kort beskrivelse: <input type="text" name="beskrivelse"/> <br/>
+        Aksjonens hjemmesider: <input type="text" name="url"/> <br/>
+        Lang beskrivelse: <input type="text" name="beskrivelse_lang"/> <br/>
+        <button type="submit">Opprett</button>
+      </form>
+    </script>
+
     <script src="Scripts/libs/underscore.js"></script>
     <script src="Scripts/libs/jquery-1.7.2.js"></script>
     <script src="Scripts/libs/bootstrap.js"></script>
     <script src="Scripts/libs/handlebars.js"></script>
     <script src="Scripts/libs/backbone.js"></script>
-    
+
     <!--<script src="Scripts/libs/backbone.localStorage.js"></script>-->
 
     <script src="Scripts/config.js"></script>
@@ -102,10 +114,4 @@
 
 
 </body>
-<script id="opprett-template" type="text/x-handlebars-template">
-  <form>
-    <b>Opprett ny aksjon: </b>
-    <input type="text" name="aksjonsnavn"/>
-  </form>
-</script>
 </html>

@@ -20,9 +20,20 @@ var app = app || {};
 
     nyAksjon:function(e) {
       e.preventDefault();
-      console.log('Oppretter ny aksjon');
-      var aksjonsnavn = this.$el.find('input[name=aksjonsnavn]').val();
-      console.log(aksjonsnavn);
+
+      var tillatP2Pmeldinger = false;
+      if (this.$el.find('input[name=tillatP2Pmeldinger]').val() === 'on') {
+        tillatP2Pmeldinger = true;
+      }
+
+      var nyAksjon = new app.AksjonModel({
+        navn: this.$el.find('input[name=navn]').val(),
+        beskrivelse: this.$el.find('input[name=beskrivelse]').val(),
+        url: this.$el.find('input[name=url]').val(),
+        tillatP2Pmeldinger: tillatP2Pmeldinger,
+        beskrivelse_lang: this.$el.find('input[name=beskrivelse_lang]').val()
+      });
+      nyAksjon.save();
     }
   });
 
