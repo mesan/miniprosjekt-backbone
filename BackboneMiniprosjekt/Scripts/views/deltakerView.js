@@ -2,21 +2,28 @@
 var app = app || {};
 
 (function() {
-    "use strict";
+	"use strict";
 
-    app.DeltakerView = Backbone.View.extend({
-        el: ".content",
-        template: _.template("<p>Navn: <%= navn %> Lag: <%= id %></p>"),
+	app.DeltakerView = Backbone.View.extend({
 
-        render: function () {
-           this.$el.html(this.template({
-        	   navn : 'Ola',
-        	   id  : this.model.id
-             }));
-           return this;
-       }
-    
+		//Definerer heller i templatefila:   	
+		//tagName : "li",
+		//className : "deltaker",
+		events : {
+			"click .deltaker-check" : "toggleDeltaker",
+		},
+		render : function() {
+			var template = Handlebars.compile($("#deltaker-template").html());
+			this.$el.html(template({
+				navn : this.model.get('navn'),
+				id : this.model.id
+			}));
+			return this;
+		},
+		toggleDeltaker : function() {
+			console.log("Checkbox click, id:" + this.model.id);
+		}
 
-    });
+	});
 
 })();

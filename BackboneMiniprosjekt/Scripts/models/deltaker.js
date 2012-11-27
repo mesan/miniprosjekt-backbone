@@ -4,9 +4,9 @@ var app = app || {};
 (function () {
     "use strict";
 
-    app.DeltakerModel = Backbone.Model.extend({
+    app.Deltaker = Backbone.Model.extend({
         defaults: {
-            navn: '',
+            navn: 'Tom',
         },
         urlRoot: app.config.apiBaseUrl + "/deltakere"
     });

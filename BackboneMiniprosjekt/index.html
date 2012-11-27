@@ -61,8 +61,9 @@
 
 
 	        <hr />
+	        
         </div>
-
+        
         <footer>
 	         <p>&copy; Mesan 2012</p>
 	    </footer>
@@ -92,6 +93,13 @@
         <button type="submit">Opprett</button>
       </form>
     </script>
+    
+    <script id="deltaker-template" type="text/x-handlebars-template">
+		<li class="deltaker">
+			<p>Navn: {{navn}} Id: {{id}} <input type='checkbox' class='deltaker-check' />
+			</p>
+		</li>
+	</script>
 
     <script src="Scripts/libs/underscore.js"></script>
     <script src="Scripts/libs/jquery-1.7.2.js"></script>
@@ -109,6 +117,7 @@
     <script src="Scripts/views/aksjonView.js"></script>
     <script src="Scripts/views/aksjonerView.js"></script>
     <script src="Scripts/views/deltakerView.js"></script>
+    <script src="Scripts/views/deltakereView.js"></script>
     <script src="Scripts/views/opprettAksjonView.js"></script>
     <script src="Scripts/app.js"></script>
 

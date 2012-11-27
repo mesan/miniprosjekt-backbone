@@ -5,7 +5,7 @@ var app = app || {};
     "use strict";
 
     app.Deltakere = Backbone.Collection.extend({
-        model: app.DeltakerModel
+        model: app.Deltaker
         //localStorage: new Store("deltakere")
     });
 })();
