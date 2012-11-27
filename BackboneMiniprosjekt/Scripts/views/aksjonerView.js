@@ -5,13 +5,15 @@ var app = app || {};
     "use strict";
 
     app.AksjonerView = Backbone.View.extend({
-        el: ".aksjoner p",
-
+        el: "#js-aksjoner-container",
+        template: Handlebars.compile($("#aksjoner-template").html()),
         render: function () {
-            this.$el.html(this.collection.models[0].get("navn"));
+            var aksjoner = this.collection.toJSON();
+            
+            this.$el.html(this.template(aksjoner));
+            
             return this;
         }
-
     });
 
 })();

@@ -5,24 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="Content/main.css" rel="stylesheet" />
-    <script src="Scripts/libs/underscore.js"></script>
-    <script src="Scripts/libs/jquery-1.7.2.js"></script>
-    <script src="Scripts/libs/bootstrap.js"></script>
-    <script src="Scripts/libs/backbone.js"></script>
-    <script src="Scripts/libs/handlebars.js"></script>
-    <script src="Scripts/libs/backbone.localStorage.js"></script>
-
-    <script src="Scripts/config.js"></script>
-    <script src="Scripts/models/aksjon.js"></script>
-    <script src="Scripts/models/deltaker.js"></script>
-    <script src="Scripts/collections/aksjoner.js"></script>
-    <script src="Scripts/collections/deltakere.js"></script>
-    <script src="Scripts/views/aksjonView.js"></script>
-    <script src="Scripts/views/aksjonerView.js"></script>
-    <script src="Scripts/views/deltakerView.js"></script>
-    <script src="Scripts/views/opprettAksjonView.js"></script>
-    <script src="Scripts/app.js"></script>
-
+    
     <title>Miniprosjekt - Backbone.js</title>
 </head>
 <body>
@@ -73,10 +56,7 @@
 	
 	            <p></p>
 	
-	            <table class="table table-hover">
-	                <tr><td>Aksjon</td></tr>
-	
-	            </table>
+	            <div id="js-aksjoner-container"></div>
 	        </div>
 	        
 	
@@ -89,6 +69,36 @@
 
     </div>
     <!-- /container -->
+     
+<script id="aksjoner-template" type="text/x-handlebars-template">
+  <table class="table table-striped">
+  <thead><tr><th>Navn</th><th>Beskrivelse</th></tr></thead>
+  <tbody>
+     {{#each this}}
+        <tr><td><a href='#aksjon/{{ id }}'>{{ navn }}</a> </td><td>{{ beskrivelse }}</td></tr>
+      {{/each}}
+  </tbody>
+  </table>  
+        </script>
+    
+    <script src="Scripts/libs/underscore.js"></script>
+    <script src="Scripts/libs/jquery-1.7.2.js"></script>
+    <script src="Scripts/libs/bootstrap.js"></script>
+    <script src="Scripts/libs/handlebars.js"></script>
+    <script src="Scripts/libs/backbone.js"></script>
+    
+    <!--<script src="Scripts/libs/backbone.localStorage.js"></script>-->
+
+    <script src="Scripts/config.js"></script>
+    <script src="Scripts/models/aksjon.js"></script>
+    <script src="Scripts/models/deltaker.js"></script>
+    <script src="Scripts/collections/aksjoner.js"></script>
+    <script src="Scripts/collections/deltakere.js"></script>
+    <script src="Scripts/views/aksjonView.js"></script>
+    <script src="Scripts/views/aksjonerView.js"></script>
+    <script src="Scripts/views/deltakerView.js"></script>
+    <script src="Scripts/views/opprettAksjonView.js"></script>
+    <script src="Scripts/app.js"></script>
 
 
 </body>
