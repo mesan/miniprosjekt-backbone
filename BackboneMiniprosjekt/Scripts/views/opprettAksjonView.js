@@ -7,7 +7,7 @@ var app = app || {};
 
   app.OpprettAksjonView = Backbone.View.extend({
 
-    el:'.aksjoner p',
+    el:'#js-aksjoner-container',
 
     events: {
       'submit form': 'nyAksjon'
@@ -21,6 +21,7 @@ var app = app || {};
     nyAksjon:function(e) {
       e.preventDefault();
 
+      // TODO: Håndtere penere?
       var tillatP2Pmeldinger = false;
       if (this.$el.find('input[name=tillatP2Pmeldinger]').val() === 'on') {
         tillatP2Pmeldinger = true;
@@ -33,7 +34,10 @@ var app = app || {};
         tillatP2Pmeldinger: tillatP2Pmeldinger,
         beskrivelse_lang: this.$el.find('input[name=beskrivelse_lang]').val()
       });
-      nyAksjon.save();
+
+      nyAksjon.save(null, {success: function(model) {
+        Backbone.history.navigate(app.config.ruting.aksjonSide + model.id);
+      }});
     }
   });
 
