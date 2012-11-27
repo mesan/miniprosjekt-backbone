@@ -7,7 +7,7 @@ var app = app || {};
 
   app.OpprettAksjonView = Backbone.View.extend({
 
-    el:'#js-aksjoner-container',
+    el:app.config.container,
 
     events: {
       'submit form': 'nyAksjon'
