@@ -23,8 +23,8 @@ var app = app || {};
 		
 		updateAttributes : function() {
 			this.model.save({
-			//	navn : this.$el.find('input[name=navn-input' + this.model.id + ']').val(),
-			//	url : this.$el.find('input[name=url-input' + this.model.id + ']').val()
+				navn : this.$el.find('.navn-input').val(),
+				url : this.$el.find('.url-input').val()
 			});
 			console.log('Model saved: ' + this.model.get('navn'));
 		},
