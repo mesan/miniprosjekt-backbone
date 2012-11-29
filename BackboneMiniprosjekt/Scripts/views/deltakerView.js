@@ -21,15 +21,21 @@ var app = app || {};
 			return this;
 		},
 		
+		//Oppdaterer og validerer
 		updateAttributes : function() {
+			
 			this.model.save({
-				navn : this.$el.find('.navn-input').val(),
-				url : this.$el.find('.url-input').val()
-			});
-			console.log('Model saved: ' + this.model.get('navn'));
+				'navn' : this.$el.find('.navn-input').val(),
+				'url' : this.$el.find('.url-input').val()
+			}, {validateAll: false});
+			
+			this.$el.find('[data-msg]').text((this.model.errors['navn'] || 'Navn OK') + 
+											(this.model.errors['url'] || 'URL OK'
+			));
 		},
 		
 		updateOnEnter : function(e) {
+			console.log(e);
 			if (e.keyCode == 13) {
 				this.updateAttributes();				
 			}
