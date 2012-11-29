@@ -6,14 +6,19 @@ var app = app || {};
 
 	app.DeltakereView = Backbone.View.extend({
 		el : app.config.container,
-		render : function() {
+		initialize: function(){
+	        //console.log(this.collection.length);
+	    },
+		render : function() {	
 			var that = this;
-			this.$el.html("<ul class='deltakere'></ul>");
-			
+			this.template = Handlebars.compile($("#deltakere-template").html());
+			this.$el.html(this.template(this.collection));
+
 			this.collection.each(function(deltaker) {
 				var view = new app.DeltakerView({model:deltaker});
-				that.$el.append(view.render().el);
+				that.$('.deltaker-liste').append(view.render().el);
 			});
+			
 			return this;
 		}
 

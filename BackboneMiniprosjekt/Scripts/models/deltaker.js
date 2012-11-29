@@ -5,10 +5,14 @@ var app = app || {};
     "use strict";
 
     app.Deltaker = Backbone.Model.extend({
-        defaults: {
-            navn: 'Tom',
+    	defaults: {
+//    		  lag: [
+//    		           {id : "1"},
+//    		           {id : "2"},
+//    		           {id : "3"}
+//    		         ]
         },
-        urlRoot: app.config.apiBaseUrl + "/deltakere"
+        urlRoot: app.config.apiBaseUrl + "/aksjoner"
     });
 
 })();

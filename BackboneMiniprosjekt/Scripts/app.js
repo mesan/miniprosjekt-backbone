@@ -8,8 +8,7 @@ app.Router = Backbone.Router.extend({
     "": "visAksjoner",
     "aksjon/opprett": "opprettAksjon",
     "aksjon/:id": "visAksjon",
-    "deltaker" : "visDeltakere",
-    "deltaker/:id" : "visDeltaker"
+    "deltaker" : "visDeltakere"
   },
 
   visAksjoner: function() {
@@ -34,26 +33,13 @@ app.Router = Backbone.Router.extend({
   },
   
   visDeltakere: function(){
-	  var deltaker = new app.Deltaker({id:1});
-	  deltaker.set('navn', 'Ola Normann');
-	  var deltaker2 = new app.Deltaker({id:2});
-	  deltaker2.set('navn', 'Kari Normann');
-	  
-	  var col = new app.Deltakere([deltaker, deltaker2]);
-	  
-	  var view = new app.DeltakereView({collection : col});
-	  view.render();
-	  
-	  
-	  console.log(" jaja_:" + col.length);
-	  console.log("i visDeltakere");
-  },
-  //Funker ikke med el, skal finne ut av det
-  visDeltaker: function(pid){
-	  var deltaker = new app.Deltaker({id:pid});
-	  deltaker.set('navn', 'Ola Normann');
-	  var view = new app.DeltakerView({model: deltaker});
-	  view.render();
+	  var deltakere = new app.Deltakere();
+	  deltakere.fetch({
+	        success: function () {
+	            var view = new app.DeltakereView({ collection: deltakere });
+	            view.render();
+	        }
+	    });
   }
 });
 

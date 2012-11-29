@@ -5,7 +5,7 @@ var app = app || {};
     "use strict";
 
     app.Deltakere = Backbone.Collection.extend({
-        model: app.Deltaker
-        //localStorage: new Store("deltakere")
+        model: app.Deltaker,
+        url: app.config.apiBaseUrl + "/aksjoner"
     });
 })();
