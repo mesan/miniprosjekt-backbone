@@ -110,6 +110,12 @@
 		</div>
 	</script>
 
+    <script id="meldinger-template" type="text/x-handlebars-template">
+    {{#each this}}
+    {{tekst}}
+    {{/each}}
+    </script>
+
 	<script id="deltaker-template" type="text/x-handlebars-template">
 		<div id="deltager-{{this.id}}" class="form-inline">
 			Navn <input type="text" class = "navn-input" value="{{this.navn}}" /> 
@@ -147,13 +153,16 @@
     <script src="Scripts/config.js"></script>
     <script src="Scripts/models/aksjon.js"></script>
     <script src="Scripts/models/deltaker.js"></script>
+    <script src="Scripts/models/melding.js"></script>
     <script src="Scripts/collections/aksjoner.js"></script>
     <script src="Scripts/collections/deltakere.js"></script>
+    <script src="Scripts/collections/meldinger.js"></script>
     <script src="Scripts/views/aksjonView.js"></script>
     <script src="Scripts/views/aksjonerView.js"></script>
     <script src="Scripts/views/deltakerView.js"></script>
     <script src="Scripts/views/deltakereView.js"></script>
     <script src="Scripts/views/opprettAksjonView.js"></script>
+    <script src="Scripts/views/meldingerView.js"></script>   
     <script src="Scripts/app.js"></script>
 
 
