@@ -13,6 +13,7 @@ app.Router = Backbone.Router.extend({
   },
 
   visAksjoner: function() {
+    console.log("i visAksjoner");
     var aksjoner = new app.Aksjoner();
     aksjoner.fetch({
         success: function () {

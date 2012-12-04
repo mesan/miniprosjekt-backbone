@@ -62,9 +62,9 @@
 
 
 	        <hr />
-
+	        
         </div>
-
+        
         <footer>
 	         <p>&copy; Mesan 2012</p>
 	    </footer>
@@ -73,7 +73,6 @@
     <!-- /container -->
 
 <script id="aksjoner-template" type="text/x-handlebars-template">
-  <a href="#/aksjon/opprett">Opprett ny aksjon</a>
   <table class="table table-striped">
   <thead><tr><th>Navn</th><th>Beskrivelse</th></tr></thead>
   <tbody>
@@ -110,11 +109,11 @@
 
 	<script id="deltakere-template" type="text/x-handlebars-template">
 		<div class="header">
-			<h3>Alle deltagere</h3>
+			<h3>Alle deltagere<h3>
 		</div>
 		<div class="hero-unit">
 		{{#if models}}
-				<div class = "deltaker-liste">
+				<div class = "deltaker-liste">	
 				</div>
 		{{else}}
 			<p>Ingen deltakere registrert</p>
@@ -131,7 +130,7 @@
 
 	<script id="deltaker-template" type="text/x-handlebars-template">
 		<div id="deltager-{{this.id}}" class="form-inline">
-			Navn <input type="text" class = "navn-input" value="{{this.navn}}" />
+			Navn <input type="text" class = "navn-input" value="{{this.navn}}" /> 
 			Url <input type="text" class = "url-input" value="{{this.url}}" />
 
 			<div class="btn-group">
@@ -175,7 +174,7 @@
     <script src="Scripts/views/deltakerView.js"></script>
     <script src="Scripts/views/deltakereView.js"></script>
     <script src="Scripts/views/opprettAksjonView.js"></script>
-    <script src="Scripts/views/meldingerView.js"></script>
+    <script src="Scripts/views/meldingerView.js"></script>   
     <script src="Scripts/app.js"></script>
 
 
