@@ -6,9 +6,9 @@ var app = app || {};
 
 	app.Deltaker = Backbone.Model.extend({
 		defaults : {},
-		urlRoot : app.config.apiBaseUrl + "/aksjoner",
+		urlRoot : app.config.apiBaseUrl + "/Deltaker",
 
-		//Tatt fra :
+		//Validering, tatt fra :
 		//https://github.com/addyosmani/backbone-fundamentals/blob/gh-pages/index.md
 		validators : {
 			minLength : function(value, minLength) {
@@ -17,6 +17,10 @@ var app = app || {};
 			maxLength : function(value, maxLength) {
 				return value.length <= maxLength;
 			}
+		},
+		
+		updateUrlRoot : function(aksjonsId) {
+			this.urlRoot = app.config.apiBaseUrl + "/aksjoner/" + aksjonsId + "/Deltakere";
 		},
 
 		validate : function(attrs) {

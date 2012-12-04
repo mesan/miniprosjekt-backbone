@@ -15,6 +15,7 @@ var app = app || {};
 			this.$el.html(this.template(this.collection));
 
 			this.collection.each(function(deltaker) {
+				deltaker.updateUrlRoot(that.collection.aksjonsId);
 				var view = new app.DeltakerView({model:deltaker});
 				that.$('.deltaker-liste').append(view.render().el);
 			});
