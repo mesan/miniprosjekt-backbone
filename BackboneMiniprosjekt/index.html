@@ -128,6 +128,17 @@
     {{/each}}
     </script>
 
+    <script id="send-melding-template" type="text/x-handlebars-template">
+      <form>
+        <h3>Send melding: </h3>
+
+        Melding: <textarea rows="3" name="melding"></textarea><br/>
+
+        <button type="submit">Send melding</button>
+      </form>
+    </script>
+
+
 	<script id="deltaker-template" type="text/x-handlebars-template">
 		<div id="deltager-{{this.id}}" class="form-inline">
 			Navn <input type="text" class = "navn-input" value="{{this.navn}}" /> 
@@ -174,7 +185,8 @@
     <script src="Scripts/views/deltakerView.js"></script>
     <script src="Scripts/views/deltakereView.js"></script>
     <script src="Scripts/views/opprettAksjonView.js"></script>
-    <script src="Scripts/views/meldingerView.js"></script>   
+    <script src="Scripts/views/meldingerView.js"></script>  
+    <script src="Scripts/views/sendMeldingView.js"></script>   
     <script src="Scripts/app.js"></script>
 
 

@@ -6,7 +6,7 @@ var app = app || {};
 
     app.Melding = Backbone.Model.extend({
         defaults: {
-            navn: ''
+            tekst: ''
         },
         urlRoot: app.config.apiBaseUrl + "/meldinger"
     });
