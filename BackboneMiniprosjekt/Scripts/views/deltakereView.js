@@ -12,7 +12,7 @@ var app = app || {};
 		render : function() {	
 			var that = this;
 			this.template = Handlebars.compile($("#deltakere-template").html());
-			this.$el.html(this.template(this.collection));
+			this.$el.html(this.template({id: this.collection.aksjonsId, models: this.collection}));
 
 			this.collection.each(function(deltaker) {
 				deltaker.updateUrlRoot(that.collection.aksjonsId);

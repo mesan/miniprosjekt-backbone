@@ -26,7 +26,7 @@ var app = app || {};
 //				'mobilnummer' : this.$el.find('.mobilnummer-input').val()
 //			}, {validateAll: false});
 			
-			this.$el.find('[data-msg]').text((this.model.errors['mobilnummer'] || 'OK'));
+//			this.$el.find('[data-msg]').text((this.model.errors['mobilnummer'] || 'OK'));
 		},
 		
 		updateOnEnter : function(e) {
