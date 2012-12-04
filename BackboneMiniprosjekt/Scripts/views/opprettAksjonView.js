@@ -32,7 +32,14 @@ var app = app || {};
         beskrivelse: this.$el.find('input[name=beskrivelse]').val(),
         url: this.$el.find('input[name=url]').val(),
         tillatP2Pmeldinger: tillatP2Pmeldinger,
-        beskrivelse_lang: this.$el.find('input[name=beskrivelse_lang]').val()
+        beskrivelse_lang: this.$el.find('input[name=beskrivelse_lang]').val(),
+        hvor: { // default-verdier inntil videre
+            "latitude": 0,
+            "longitude": 0,
+            "altitude": 0,
+            "bearing": 0,
+            "speed": 0
+          }
       });
 
       nyAksjon.save(null, {success: function(model) {
