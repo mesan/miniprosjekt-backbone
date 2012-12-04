@@ -9,8 +9,7 @@ app.Router = Backbone.Router.extend({
     "aksjon/opprett": "opprettAksjon",
     "aksjon/:id": "visAksjon",
     "deltaker" : "visDeltakere",
-    "meldinger" : "visMeldinger",
-
+    "meldinger" : "visMeldinger"
   },
 
   visAksjoner: function() {
@@ -47,7 +46,7 @@ app.Router = Backbone.Router.extend({
 	    });
   },
 
-  visMeldinger: function(){    
+  visMeldinger: function(){
     var meldinger = new app.Meldinger();
     meldinger.fetch({
         success: function() {

@@ -43,7 +43,7 @@ var app = app || {};
       });
 
       nyAksjon.save(null, {success: function(model) {
-        Backbone.history.navigate(app.config.ruting.aksjonSide + model.id);
+        Backbone.history.navigate(app.config.ruting.aksjonSide + model.id, {trigger: true});
       }});
     }
   });

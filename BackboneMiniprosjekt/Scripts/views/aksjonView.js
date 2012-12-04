@@ -8,7 +8,6 @@ var app = app || {};
     el:app.config.container,
 
     render:function(model) {
-
       var template = Handlebars.compile($("#rediger-aksjon-template").html());
       this.$el.html(template);
 
