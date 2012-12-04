@@ -14,7 +14,7 @@ var app = app || {};
     },
 
     render:function() {
-      var template = Handlebars.compile($("#opprett-template").html());
+      var template = Handlebars.compile($("#opprett-aksjon-template").html());
       this.$el.html(template);
     },
 

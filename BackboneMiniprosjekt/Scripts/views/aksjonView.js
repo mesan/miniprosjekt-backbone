@@ -9,7 +9,7 @@ var app = app || {};
 
     render:function(model) {
 
-      var template = Handlebars.compile($("#opprett-template").html());
+      var template = Handlebars.compile($("#rediger-aksjon-template").html());
       this.$el.html(template);
 
       this.$el.find('input[name=navn]').val(model.get('navn'));

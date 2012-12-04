@@ -84,7 +84,7 @@
   </table>
 </script>
 
-    <script id="opprett-template" type="text/x-handlebars-template">
+    <script id="opprett-aksjon-template" type="text/x-handlebars-template">
       <form>
         <h3>Opprett ny aksjon: </h3>
         Navn: <input type="text" name="navn"/>
@@ -96,6 +96,17 @@
       </form>
     </script>
 
+    <script id="rediger-aksjon-template" type="text/x-handlebars-template">
+      <form>
+        <h3>Rediger aksjon: </h3>
+        Navn: <input type="text" name="navn"/>
+        Direktemeldinger: <input type="checkbox" name="tillatP2Pmeldinger"/> <br/>
+        Kort beskrivelse: <input type="text" name="beskrivelse"/> <br/>
+        Aksjonens hjemmesider: <input type="text" name="url"/> <br/>
+        Lang beskrivelse: <input type="text" name="beskrivelse_lang"/> <br/>
+        <button type="submit">Lagre</button>
+      </form>
+    </script>
 
 	<script id="deltakere-template" type="text/x-handlebars-template">
 		<div class="header">
