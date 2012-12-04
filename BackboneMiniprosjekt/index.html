@@ -62,9 +62,9 @@
 
 
 	        <hr />
-	        
+
         </div>
-        
+
         <footer>
 	         <p>&copy; Mesan 2012</p>
 	    </footer>
@@ -73,6 +73,7 @@
     <!-- /container -->
 
 <script id="aksjoner-template" type="text/x-handlebars-template">
+  <a href="#/aksjon/opprett">Opprett ny aksjon</a>
   <table class="table table-striped">
   <thead><tr><th>Navn</th><th>Beskrivelse</th></tr></thead>
   <tbody>
@@ -97,16 +98,15 @@
 
     <script id="rediger-aksjon-template" type="text/x-handlebars-template">
       <form>
-        <h3>Rediger aksjon: </h3>
-        Navn: <input type="text" name="navn"/>
-        Direktemeldinger: <input type="checkbox" name="tillatP2Pmeldinger"/> <br/>
-        Kort beskrivelse: <input type="text" name="beskrivelse"/> <br/>
-        Aksjonens hjemmesider: <input type="text" name="url"/> <br/>
-        Lang beskrivelse: <input type="text" name="beskrivelse_lang"/> <br/>
-        <button type="submit">Lagre</button>
+        <h3>Aksjonsinfo: </h3>
+        Navn: <input type="text" name="navn" class="redigerAksjonInput"/>
+        Direktemeldinger: <input type="checkbox" name="tillatP2Pmeldinger" class="redigerAksjonInput"/> <br/>
+        Kort beskrivelse: <input type="text" name="beskrivelse" class="redigerAksjonInput"/> <br/>
+        Aksjonens hjemmesider: <input type="text" name="url" class="redigerAksjonInput"/> <br/>
+        Lang beskrivelse: <input type="text" name="beskrivelse_lang" class="redigerAksjonInput"/> <br/>
       </form>
     </script>
-    
+
     <script id="meldinger-template" type="text/x-handlebars-template">
     <div class="header"><h3>Alle Meldinger</h3></div>
     {{#each this}}
@@ -127,7 +127,7 @@
 
 	<script id="deltakere-template" type="text/x-handlebars-template">
 		<div class="header">
-			<h3>Alle deltagere<h3>
+			<h3>Alle deltagere</h3>
 		</div>
 		<div class="hero-unit">
 		{{#if models}}
@@ -162,13 +162,14 @@
     <script src="Scripts/collections/aksjoner.js"></script>
     <script src="Scripts/collections/deltakere.js"></script>
     <script src="Scripts/collections/meldinger.js"></script>
+    <script src="Scripts/views/baseAksjonView.js"></script>
+    <script src="Scripts/views/opprettAksjonView.js"></script>
     <script src="Scripts/views/aksjonView.js"></script>
     <script src="Scripts/views/aksjonerView.js"></script>
     <script src="Scripts/views/deltakerView.js"></script>
     <script src="Scripts/views/deltakereView.js"></script>
-    <script src="Scripts/views/opprettAksjonView.js"></script>
-    <script src="Scripts/views/meldingerView.js"></script>  
-    <script src="Scripts/views/sendMeldingView.js"></script>   
+    <script src="Scripts/views/meldingerView.js"></script>
+    <script src="Scripts/views/sendMeldingView.js"></script>
     <script src="Scripts/app.js"></script>
 
 

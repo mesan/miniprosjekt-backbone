@@ -5,7 +5,7 @@ var app = app || {};
 (function() {
   "use strict";
 
-  app.OpprettAksjonView = Backbone.View.extend({
+  app.OpprettAksjonView = app.BaseAksjonView.extend({
 
     el:app.config.container,
 
@@ -21,26 +21,8 @@ var app = app || {};
     nyAksjon:function(e) {
       e.preventDefault();
 
-      // TODO: Håndtere penere?
-      var tillatP2Pmeldinger = false;
-      if (this.$el.find('input[name=tillatP2Pmeldinger]').val() === 'on') {
-        tillatP2Pmeldinger = true;
-      }
-
-      var nyAksjon = new app.AksjonModel({
-        navn: this.$el.find('input[name=navn]').val(),
-        beskrivelse: this.$el.find('input[name=beskrivelse]').val(),
-        url: this.$el.find('input[name=url]').val(),
-        tillatP2Pmeldinger: tillatP2Pmeldinger,
-        beskrivelse_lang: this.$el.find('input[name=beskrivelse_lang]').val(),
-        hvor: { // default-verdier inntil videre
-            "latitude": 0,
-            "longitude": 0,
-            "altitude": 0,
-            "bearing": 0,
-            "speed": 0
-          }
-      });
+      var nyAksjon = new app.AksjonModel();
+      this.fyllUtAksjonsdetaljer(nyAksjon);
 
       nyAksjon.save(null, {success: function(model) {
         Backbone.history.navigate(app.config.ruting.aksjonSide + model.id, {trigger: true});

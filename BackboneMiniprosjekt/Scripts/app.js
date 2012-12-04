@@ -29,9 +29,9 @@ app.Router = Backbone.Router.extend({
   visAksjon: function(id) {
     var model = new app.AksjonModel();
     model.set({id: id});
-    model.fetch({success: function(response) {
-      var visAksjon = new app.AksjonView();
-      visAksjon.render(response);
+    model.fetch({success: function(model) {
+      var visAksjon = new app.AksjonView({model: model});
+      visAksjon.render();
     }});
   },
 
