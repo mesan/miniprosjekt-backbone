@@ -23,16 +23,20 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  visAksjon: function() {
-    // TODO: Gjør noe mer fornuftig her :)
-    console.log("i visAksjon");
+  visAksjon: function(id) {
+    var model = new app.AksjonModel();
+    model.set({id: id});
+    model.fetch({success: function(response) {
+      var visAksjon = new app.AksjonView();
+      visAksjon.render(response);
+    }});
   },
 
   opprettAksjon: function() {
     var opprettAksjon = new app.OpprettAksjonView();
     opprettAksjon.render();
   },
-  
+
   visDeltakere: function(){
 	  var deltakere = new app.Deltakere();
 	  deltakere.fetch({
@@ -45,7 +49,7 @@ app.Router = Backbone.Router.extend({
 
 
   visMeldinger: function(id){
-    
+
     var meldinger = new app.Meldinger();
     meldinger.aksjonid = id;
     meldinger.fetch({
@@ -54,7 +58,7 @@ app.Router = Backbone.Router.extend({
           view.render();
         }
     })
-  },
+  }
 
 
 });
