@@ -134,7 +134,7 @@
     </script>
 
 
-    <script id="deltakere-template" type="text/x-handlebars-template">
+	<script id="deltakere-template" type="text/x-handlebars-template">
 		<div class="header">
 			<h3>Alle deltagere</h3>
 		</div>
@@ -145,16 +145,25 @@
 		{{else}}
 			<p>Ingen deltakere registrert på denne aksjonen</p>
 		{{/if}}
+		<br />
+		<div class="add-deltager">
+			<h4>Legg til deltaker:</h4>
+			Mobilnummer: <input type="text" name="add-mobil-input" />
+			<a class="btn btn-primary btn-medium">
+      			Legg til deltaker
+    		</a>
 		</div>
-    </script>
 
-    <script id="deltaker-template" type="text/x-handlebars-template">
+		</div>
+	</script>
+
+	<script id="deltaker-template" type="text/x-handlebars-template">
 		<div id="deltager-{{this.id}}" class="form-inline">
 			Mob <input type="text" class = "mobilnummer-input" value="{{this.mobilnummer}}" />
 			<span data-msg='navn-msg' class="badge badge-important"></span>
 			<button class="close">&times;</button>
 		</div>
-    </script>
+	</script>
 
     <script src="Scripts/libs/underscore.js"></script>
     <script src="Scripts/libs/jquery-1.7.2.js"></script>

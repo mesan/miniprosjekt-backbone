@@ -6,6 +6,9 @@ var app = app || {};
 
 	app.DeltakereView = Backbone.View.extend({
 		el : app.config.container,
+		events : {
+			"click .btn" : "addDeltaker"
+		},
 		initialize: function(){
 	        //console.log(this.collection.length);
 	    },
@@ -21,6 +24,13 @@ var app = app || {};
 			});
 			
 			return this;
+		},
+		addDeltaker : function(){
+			var deltaker = new app.Deltaker();
+			deltaker.updateUrlRoot(this.collection.aksjonsId);
+			deltaker.set('mobilnummer', this.$el.find('input[name=add-mobil-input]').val());
+			this.collection.create(deltaker);
+			this.render();
 		}
 
 	});
