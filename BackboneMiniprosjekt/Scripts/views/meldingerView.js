@@ -14,19 +14,17 @@ var app = app || {};
             return this;
         },
         initialize: function () {
-            _.bind(this.bindPushUpdate, this)();
+            _.bind(this.bindPushOppdatering, this)();
         },
 
-        bindPushUpdate: function () {
+        bindPushOppdatering: function () {
             var self = this,
-                aksjonId = 1,
-                pusher = new Pusher('76b8bc80e33cffd17524'),
-                channel = pusher.subscribe('leteaksjon-' + aksjonId);
+                oppdateringsFunksjon = function (data) {
+                    self.collection.add(JSON.parse(data));
+                    self.render();
+                };
 
-            channel.bind('ny-melding', function (data) {
-                self.collection.add(JSON.parse(data));
-                self.render();
-            });
+            app.meldingsOppdaterer.bind(this.collection.aksjonsId, oppdateringsFunksjon);
         }
     });
 
