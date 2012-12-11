@@ -50,29 +50,29 @@
 
     <div class="container">
 
-		<div class= "content">
-	        <div class="aksjoner">
-	        <div class="page-header">
-	            <h1>Aksjoner</h1>
-			</div>
-	            <p></p>
+        <div class="content">
+            <div class="aksjoner">
+                <div class="page-header">
+                    <h1>Aksjoner</h1>
+                </div>
+                <p></p>
 
-	            <div id="js-aksjoner-container"></div>
-	        </div>
+                <div id="js-aksjoner-container"></div>
+            </div>
 
 
-	        <hr />
+            <hr />
 
         </div>
 
         <footer>
-	         <p>&copy; Mesan 2012</p>
-	    </footer>
+            <p>&copy; Mesan 2012</p>
+        </footer>
 
     </div>
     <!-- /container -->
 
-<script id="aksjoner-template" type="text/x-handlebars-template">
+    <script id="aksjoner-template" type="text/x-handlebars-template">
   <a href="#/aksjon/opprett">Opprett ny aksjon</a>
   <table class="table table-striped">
   <thead><tr><th>Navn</th><th>Beskrivelse</th></tr></thead>
@@ -82,7 +82,7 @@
       {{/each}}
   </tbody>
   </table>
-</script>
+    </script>
 
     <script id="opprett-aksjon-template" type="text/x-handlebars-template">
       <form>
@@ -109,9 +109,18 @@
 
     <script id="meldinger-template" type="text/x-handlebars-template">
     <div class="header"><h3>Alle Meldinger</h3></div>
-    {{#each this}}
-    <p>{{tekst}}</p>
-    {{/each}}
+    <ul class="unstyled">
+        {{#each this}}
+        <li><strong>{{tekst}}</strong>        
+            <ul class="inline">
+            Mottakere:
+            {{#each mottakere}}
+                <li>{{mobilnummer}}</li>
+            {{/each}}
+            </ul>
+        </li>
+        {{/each}}
+     </ul>
     </script>
 
     <script id="send-melding-template" type="text/x-handlebars-template">
@@ -125,7 +134,7 @@
     </script>
 
 
-	<script id="deltakere-template" type="text/x-handlebars-template">
+    <script id="deltakere-template" type="text/x-handlebars-template">
 		<div class="header">
 			<h3>Alle deltagere</h3>
 		</div>
@@ -137,15 +146,15 @@
 			<p>Ingen deltakere registrert på denne aksjonen</p>
 		{{/if}}
 		</div>
-	</script>
+    </script>
 
-	<script id="deltaker-template" type="text/x-handlebars-template">
+    <script id="deltaker-template" type="text/x-handlebars-template">
 		<div id="deltager-{{this.id}}" class="form-inline">
 			Mob <input type="text" class = "mobilnummer-input" value="{{this.mobilnummer}}" />
 			<span data-msg='navn-msg' class="badge badge-important"></span>
 			<button class="close">&times;</button>
 		</div>
-	</script>
+    </script>
 
     <script src="Scripts/libs/underscore.js"></script>
     <script src="Scripts/libs/jquery-1.7.2.js"></script>
@@ -153,6 +162,7 @@
     <script src="Scripts/libs/handlebars.js"></script>
     <script src="Scripts/libs/backbone.js"></script>
     <script src="Scripts/libs/backbone.validation.js"></script>
+    <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
 
     <!--<script src="Scripts/libs/backbone.localStorage.js"></script>-->
 
