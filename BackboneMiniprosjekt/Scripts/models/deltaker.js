@@ -25,30 +25,15 @@ var app = app || {};
 
 		validate : function(attrs) {
 			var errors = this.errors = {};
-			if (attrs.navn != null) {
-				console.log(attrs.navn + " valideres");
-				if (!attrs.navn) {
-					errors.navn = 'mangler navn';
-					console.log('mangler navn');
-				} else if (!this.validators.minLength(attrs.navn, 2)) {
-					errors.navn = 'navn er for kort';
-					console.log('navn er for kort');
-				} else if (!this.validators.maxLength(attrs.navn, 15)) {
-					errors.navn = 'navn er for langt';
-					console.log('navn er for langt');
-				}
-			}
-			if (attrs.url != null) {
-				console.log(attrs.url + " valideres");
-				if (!attrs.url) {
-					errors.url = 'mangler url';
-					console.log('mangler url');
-				} else if (!this.validators.minLength(attrs.url, 5)) {
-					errors.url = 'url er for kort';
-					console.log('url er for kort');
-				} else if (!this.validators.maxLength(attrs.url, 30)) {
-					errors.url = 'url er for lang';
-					console.log('url er for lang');
+			
+			if (attrs.mobilnummer != null) {
+				console.log(attrs.mobilnummer + " valideres");
+				if (!attrs.mobilnummer) {
+					errors.mobilnummer = 'mangler navn';
+				} else if (!this.validators.minLength(attrs.mobilnummer, 2)) {
+					errors.mobilnummer = 'mobilnummer er for kort';
+				} else if (!this.validators.maxLength(attrs.mobilnummer, 15)) {
+					errors.mobilnummer = 'navn er for langt';
 				}
 			}
 			

@@ -28,9 +28,17 @@ var app = app || {};
 		addDeltaker : function(){
 			var deltaker = new app.Deltaker();
 			deltaker.updateUrlRoot(this.collection.aksjonsId);
-			deltaker.set('mobilnummer', this.$el.find('input[name=add-mobil-input]').val());
-			this.collection.create(deltaker);
-			this.render();
+			deltaker.set({
+				'mobilnummer': this.$el.find('input[name=add-mobil-input]').val()
+			},{validateAll: false});
+			
+			if (!_.isEmpty(deltaker.errors)) {
+				alert(deltaker.errors['mobilnummer']);
+			}else{
+				this.collection.create(deltaker);
+				this.render();
+			}
+
 		}
 
 	});
