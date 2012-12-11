@@ -134,27 +134,25 @@
       </form>
     </script>
 
-
 	<script id="deltakere-template" type="text/x-handlebars-template">
 		<div class="header">
 			<h3>Alle deltagere</h3>
 		</div>
 		<div class="hero-unit">
-		<h4>Aksjon: {{id}}</h4>
-		{{#if models}}
+			<h4>Aksjon: {{id}}</h4>
+			{{#if models.length}}
 				<div class = "deltaker-liste"></div>
-		{{else}}
-			<p>Ingen deltakere registrert på denne aksjonen</p>
-		{{/if}}
-		<br />
-		<div class="add-deltager">
-			<h4>Legg til deltaker:</h4>
-			Mobilnummer: <input type="text" name="add-mobil-input" />
-			<a class="btn btn-primary btn-medium">
-      			Legg til deltaker
-    		</a>
-		</div>
-
+			{{else}}
+				<p>Ingen deltakere registrert på denne aksjonen</p>
+			{{/if}}
+			<br />
+			<div class="add-deltager">
+				<h4>Legg til deltaker:</h4>
+				Mobilnummer: <input type="text" name="add-mobil-input" />
+				<a class="btn btn-primary btn-medium">
+      				Legg til deltaker
+    			</a>
+			</div>
 		</div>
 	</script>
 
