@@ -27,13 +27,13 @@ var app = app || {};
 			var errors = this.errors = {};
 			
 			if (attrs.mobilnummer != null) {
-				console.log(attrs.mobilnummer + " valideres");
+				//console.log(attrs.mobilnummer + " valideres");
 				if (!attrs.mobilnummer) {
-					errors.mobilnummer = 'mangler navn';
+					errors.mobilnummer = 'mangler mobilnummer';
 				} else if (!this.validators.minLength(attrs.mobilnummer, 2)) {
 					errors.mobilnummer = 'mobilnummer er for kort';
 				} else if (!this.validators.maxLength(attrs.mobilnummer, 15)) {
-					errors.mobilnummer = 'navn er for langt';
+					errors.mobilnummer = 'mobilnummer er for langt';
 				}
 			}
 			

@@ -20,7 +20,7 @@ var app = app || {};
 		},
 		
 		updateAttributes : function() {
-			
+			alert("Ikke støttet av backend");
 			//Not yet supported by the API
 //			this.model.save({
 //				'mobilnummer' : this.$el.find('.mobilnummer-input').val()
