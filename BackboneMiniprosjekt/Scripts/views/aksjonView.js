@@ -7,8 +7,9 @@ var app = app || {};
   app.AksjonView = app.BaseAksjonView.extend({
     el:app.config.container,
 
-    events: {
-      'change .redigerAksjonInput': 'autoLagre'
+    events:{
+      'change .redigerAksjonInput':'autoLagre',
+      'click #startAksjonKnapp':'toggleAktiv'
     },
 
     render:function() {
@@ -22,12 +23,28 @@ var app = app || {};
       if (this.model.get('tillatP2Pmeldinger')) {
         this.$el.find('input[name=tillatP2Pmeldinger]').attr('checked', 'checked')
       }
+
+      var ikon = this.$el.find('#startAksjonKnapp i');
+      if (this.model.get('aktiv')) {
+        ikon.removeClass('icon-play').addClass('icon-stop')
+      } else {
+        ikon.removeClass('icon-stop').addClass('icon-play')
+      }
     },
 
-    autoLagre:function(e) {
+    autoLagre:function() {
       this.fyllUtAksjonsdetaljer(this.model);
-      this.model.save(null, {success: function() {
+      this.model.save(null, {success:function() {
         console.log("autolagret aksjon");
+      }});
+    },
+
+    toggleAktiv:function() {
+      this.fyllUtAksjonsdetaljer(this.model);
+      this.model.set('aktiv', !this.model.get('aktiv'));
+      var self = this;
+      this.model.save(null, {success:function() {
+        self.render();
       }});
     }
   });
