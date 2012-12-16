@@ -58,7 +58,7 @@ app.Router = Backbone.Router.extend({
     visMeldinger: function (aksjonsId) {
         var meldinger = new app.Meldinger();
         meldinger.aksjonsId = aksjonsId;
-        meldinger.updateUrl();
+        
         meldinger.fetch({
             success: function () {
                 var view = new app.MeldingerView({ collection: meldinger });

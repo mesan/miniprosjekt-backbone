@@ -112,10 +112,11 @@
     <ul class="unstyled">
         {{#each this}}
         <li><strong>{{tekst}}</strong>        
+        <span>fra {{avsender}}</span>        
             <ul class="inline">
             Mottakere:
             {{#each mottakere}}
-                <li>{{mobilnummer}}</li>
+                <li>{{type}}: {{mottaker_id}}</li>
             {{/each}}
             </ul>
         </li>
