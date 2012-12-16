@@ -6,10 +6,14 @@ var app = app || {};
 
     app.Deltakere = Backbone.Collection.extend({
         model: app.Deltaker,
-        url: app.config.apiBaseUrl,
+        //url: app.config.apiBaseUrl,
         
-        updateUrl : function(){
-        	this.url = this.url + "/aksjoner/"+ this.aksjonsId + "/Deltakere";
+        url : function(){
+        	//this.url = this.url + "/aksjoner/"+ this.aksjonsId + "/Deltakere";
+        	return app.config.apiBaseUrl + "/aksjoner/"+ this.aksjonsId + "/Deltakere";
         }
+//    updateUrl : function(){
+//    	this.url = this.url + "/aksjoner/"+ this.aksjonsId + "/Deltakere";
+//    }
     });
 })();

@@ -5,7 +5,6 @@ var app = app || {};
 	"use strict";
 
 	app.DeltakerView = Backbone.View.extend({
-		//el : app.config.container,
 		events : {
 			"keypress .mobilnummer-input" : "updateOnEnter",
 			"click .close" : "deleteSelf"
@@ -26,7 +25,6 @@ var app = app || {};
 //				'mobilnummer' : this.$el.find('.mobilnummer-input').val()
 //			}, {validateAll: false});
 			
-//			this.$el.find('[data-msg]').text((this.model.errors['mobilnummer'] || 'OK'));
 		},
 		
 		updateOnEnter : function(e) {

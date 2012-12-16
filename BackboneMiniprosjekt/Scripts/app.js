@@ -45,7 +45,6 @@ app.Router = Backbone.Router.extend({
     visDeltakere: function (id) {
         var deltakere = new app.Deltakere();
         deltakere.aksjonsId = id;
-        deltakere.updateUrl();
 
         deltakere.fetch({
             success: function () {

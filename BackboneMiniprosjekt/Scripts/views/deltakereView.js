@@ -18,7 +18,6 @@ var app = app || {};
 			this.$el.html(this.template({id: this.collection.aksjonsId, models: this.collection}));
 
 			this.collection.each(function(deltaker) {
-				deltaker.updateUrlRoot(that.collection.aksjonsId);
 				var view = new app.DeltakerView({model:deltaker});
 				that.$('.deltaker-liste').append(view.render().el);
 			});
@@ -27,14 +26,16 @@ var app = app || {};
 		},
 		addDeltaker : function(){
 			var deltaker = new app.Deltaker();
-			deltaker.updateUrlRoot(this.collection.aksjonsId);
 			deltaker.set({
-				'mobilnummer': this.$el.find('input[name=add-mobil-input]').val()
+				'mobilnummer' : this.$el.find('input[name=add-mobil-input]').val(),
+				'aksjonId' : this.collection.aksjonsId
 			},{validateAll: false});
 			
 			if (!_.isEmpty(deltaker.errors)) {
 				alert(deltaker.errors['mobilnummer']);
 			}else{
+				deltaker.urlRoot = app.config.apiBaseUrl + 
+								"/aksjoner/"+ this.collection.aksjonsId + "/Deltakere";
 				this.collection.create(deltaker);
 				this.render();
 			}
