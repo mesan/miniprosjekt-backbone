@@ -21,11 +21,10 @@ var app = app || {};
 		},
 		
 		updateAttributes : function() {
-			alert("Oppdatering av model er ikke støttet av backend...");
-			//Not yet supported by the API
-//			this.model.save({
-//				'mobilnummer' : this.$el.find('.mobilnummer-input').val()
-//			}, {validateAll: false});
+			this.model.save({
+				'mobilnummer' : this.$el.find('.mobilnummer-input').val(),
+			    'aktiv' : this.$el.find('.deltaker-check').is(':checked')
+			}, {validateAll: false});
 			
 		},
 		
