@@ -2,75 +2,78 @@
 
 var app = app || {};
 
-app.Router = Backbone.Router.extend({
+app.Router = Backbone.Router.extend({	
 
-    routes: {
-        "": "visAksjoner",
-        "aksjon/opprett": "opprettAksjon",
-        "aksjon/:id": "visAksjon",
-        "deltakere/:id": "visDeltakere", //aksjonsid
-        "meldinger/:aksjonsId": "visMeldinger",
-        "sendmelding": "visSendMelding",
+  routes: {
+    "": "visAksjoner",
+    "aksjon/opprett": "opprettAksjon",
+    "aksjon/:id": "visAksjon",
+    "deltaker" : "visDeltakere",
+    "meldinger" : "visMeldinger",
+    "operasjonrom/:id": "visOperasjonRom",
+    "operasjonromaksjon": "visOperasjonAksjonFane",
+    "operasjonrom": "visOperasjonRomFane"
 
+  },
 
-    },
+  visAksjoner: function() {
+    var aksjoner = new app.Aksjoner();
+    aksjoner.fetch({
+        success: function () {
+            var view = new app.AksjonerView({ collection: aksjoner });
+            view.render();
+        }
+    });
+  },
 
-    visAksjoner: function () {
-        console.log("i visAksjoner");
-        var aksjoner = new app.Aksjoner();
-        aksjoner.fetch({
-            success: function () {
-                var view = new app.AksjonerView({ collection: aksjoner });
-                view.render();
-            }
-        });
-    },
+  visAksjon: function(id) {
+    var model = new app.AksjonModel();
+    model.set({id: id});
+    model.fetch({success: function(response) {
+      var visAksjon = new app.AksjonView();
+      visAksjon.render(response);
+    }});
+  },
 
-    visAksjon: function (id) {
-        var model = new app.AksjonModel();
-        model.set({ id: id });
-        model.fetch({
-            success: function (model) {
-                var visAksjon = new app.AksjonView({ model: model });
-                visAksjon.render();
-            }
-        });
-    },
+  opprettAksjon: function() {
+    var opprettAksjon = new app.OpprettAksjonView();
+    opprettAksjon.render();
+  },
 
-    opprettAksjon: function () {
-        var opprettAksjon = new app.OpprettAksjonView();
-        opprettAksjon.render();
-    },
+  visDeltakere: function(){
+	  var deltakere = new app.Deltakere();
+	  deltakere.fetch({
+	        success: function () {
+	            var view = new app.DeltakereView({ collection: deltakere });
+	            view.render();
+	        }
+	    });
+  },
 
-    visDeltakere: function (id) {
-        var deltakere = new app.Deltakere();
-        deltakere.aksjonsId = id;
-
-        deltakere.fetch({
-            success: function () {
-                var view = new app.DeltakereView({ collection: deltakere });
-                view.render();
-            }
-        });
-    },
-
-    visMeldinger: function (aksjonsId) {
-        var meldinger = new app.Meldinger();
-        meldinger.aksjonsId = aksjonsId;
-        
-        meldinger.fetch({
-            success: function () {
-                var view = new app.MeldingerView({ collection: meldinger });
-                view.render();
-            }
-        })
-    },
-
-    visSendMelding: function () {
-        var nyMelding = new app.sendMeldingView();
-        nyMelding.render();
-
-    },
+  visMeldinger: function(){    
+    var meldinger = new app.Meldinger();
+    meldinger.fetch({
+        success: function() {
+          var view = new app.MeldingerView({collection: meldinger});
+          view.render();
+        }
+    });
+  },
+  
+  visOperasjonRom: function(id){	 	   
+	 this.operasjonRomView = new app.OperasjonRomView({'id': id});	 
+	 this.operasjonRomView.renderAksjon();	  
+		
+  },
+  
+  visOperasjonAksjonFane: function() {
+	 this.operasjonRomView.renderAksjon();
+	  
+  },
+  
+  visOperasjonRomFane: function() {
+	  this.operasjonRomView.renderRom();
+  }
 
 
 });

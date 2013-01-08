@@ -5,7 +5,8 @@ var app = app || {};
   "use strict";
 
   app.AksjonView = app.BaseAksjonView.extend({
-    el:app.config.container,
+    //el:app.config.container,
+	  tagName: "section",	  
 
     events:{
       'change .redigerAksjonInput':'autoLagre',
@@ -48,4 +49,5 @@ var app = app || {};
       }});
     }
   });
+  return this;
 })();

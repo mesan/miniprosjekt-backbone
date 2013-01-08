@@ -6,7 +6,7 @@ var app = app || {};
     "use strict";
 
     app.MeldingerView = Backbone.View.extend({
-        el: app.config.container,
+        tagName: "section",        
         template: Handlebars.compile($("#meldinger-template").html()),
         render: function () {
             this.$el.empty();

@@ -78,7 +78,7 @@
   <thead><tr><th>Navn</th><th>Beskrivelse</th></tr></thead>
   <tbody>
      {{#each this}}
-        <tr><td><a href='#aksjon/{{ id }}'>{{ navn }}</a> </td><td>{{ beskrivelse }}</td></tr>
+        <tr><td><a href='#operasjonrom/{{ id }}'>{{ navn }}</a> </td><td>{{ beskrivelse }}</td></tr>
       {{/each}}
   </tbody>
   </table>
@@ -158,6 +158,20 @@
 		</div>
 	</script>
 
+    <script id="meldinger-template" type="text/x-handlebars-template">
+    <div class="header"><h3>Alle Meldinger</h3></div>
+    {{#each this}}
+    <p>{{tekst}}</p>
+    {{/each}}
+    </script>
+    
+    <script id="operasjon-rom-template" type="#text/x-handlebars-template">
+		<ul class="nav nav-tabs">  			
+  			<li class="active" id="operasjonRomAksjon"><a href='#/operasjonromaksjon'>Aksjonsinfo</a></li>
+  			<li id="operasjonRom"><a href='#/operasjonrom'>Operasjonsrom</a></li>
+		</ul>
+	</script>
+
 	<script id="deltaker-template" type="text/x-handlebars-template">
 		<div id="deltager-{{this.id}}" class="form-inline">
 			Mob <input type="text" class = "mobilnummer-input" value="{{this.mobilnummer}}" />
@@ -179,6 +193,7 @@
     <script src="Scripts/models/aksjon.js"></script>
     <script src="Scripts/models/deltaker.js"></script>
     <script src="Scripts/models/melding.js"></script>
+   	<script src="Scripts/models/operasjonRom.js"></script>
     <script src="Scripts/collections/aksjoner.js"></script>
     <script src="Scripts/collections/deltakere.js"></script>
     <script src="Scripts/collections/meldinger.js"></script>
@@ -188,9 +203,12 @@
     <script src="Scripts/views/aksjonerView.js"></script>
     <script src="Scripts/views/deltakerView.js"></script>
     <script src="Scripts/views/deltakereView.js"></script>
-    <script src="Scripts/views/meldingerView.js"></script>
+    <script src="Scripts/views/opprettAksjonView.js"></script>
+    <script src="Scripts/views/meldingerView.js"></script>    
+    <script src="Scripts/views/operasjonRomView.js"></script>
     <script src="Scripts/views/sendMeldingView.js"></script>
     <script src="Scripts/app.js"></script>
+   
 
 
 </body>
