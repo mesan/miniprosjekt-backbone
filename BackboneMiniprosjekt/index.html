@@ -87,9 +87,9 @@
     <script id="opprett-aksjon-template" type="text/x-handlebars-template">
       <form>
         <h3>Opprett ny aksjon: </h3>
-        Navn: <input type="text" name="navn"/>
         Direktemeldinger: <input type="checkbox" name="tillatP2Pmeldinger"/> <br/>
-        Kort beskrivelse: <input type="text" name="beskrivelse"/> <br/>
+        Navn: <input type="text" name="navn"/> <span data-msg='navn'></span> <br/>
+        Kort beskrivelse: <input type="text" name="beskrivelse"/> <span data-msg='beskrivelse'></span> <br/>
         Aksjonens hjemmesider: <input type="text" name="url"/> <br/>
         Lang beskrivelse: <input type="text" name="beskrivelse_lang"/> <br/>
         <button type="submit">Opprett</button>
@@ -112,8 +112,8 @@
     <div class="header"><h3>Alle Meldinger</h3></div>
     <ul class="unstyled">
         {{#each this}}
-        <li><strong>{{tekst}}</strong>        
-        <span>fra {{avsender}}</span>        
+        <li><strong>{{tekst}}</strong>
+        <span>fra {{avsender}}</span>
             <ul class="inline">
             Mottakere:
             {{#each mottakere}}
@@ -190,6 +190,7 @@
     <!--<script src="Scripts/libs/backbone.localStorage.js"></script>-->
     <script src="Scripts/meldingsoppdaterer.js"></script>
     <script src="Scripts/config.js"></script>
+    <script src="Scripts/views/felt.js"></script>
     <script src="Scripts/models/aksjon.js"></script>
     <script src="Scripts/models/deltaker.js"></script>
     <script src="Scripts/models/melding.js"></script>
