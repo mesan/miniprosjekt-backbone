@@ -8,7 +8,7 @@ app.Router = Backbone.Router.extend({
     "": "visAksjoner",
     "aksjon/opprett": "opprettAksjon",
     "aksjon/:id": "visAksjon",
-    "deltaker" : "visDeltakere",
+    "deltakere/:id": "visDeltakere", //aksjonsid
     "meldinger" : "visMeldinger",
     "operasjonrom/:id": "visOperasjonRom",
     "operasjonromaksjon": "visOperasjonAksjonFane",
@@ -39,15 +39,17 @@ app.Router = Backbone.Router.extend({
     var opprettAksjon = new app.OpprettAksjonView();
     opprettAksjon.render();
   },
+  
+  visDeltakere: function (id) {
+      var deltakere = new app.Deltakere();
+      deltakere.aksjonsId = id;
 
-  visDeltakere: function(){
-	  var deltakere = new app.Deltakere();
-	  deltakere.fetch({
-	        success: function () {
-	            var view = new app.DeltakereView({ collection: deltakere });
-	            view.render();
-	        }
-	    });
+      deltakere.fetch({
+          success: function () {
+              var view = new app.DeltakereView({ collection: deltakere });
+              view.render();
+          }
+      });
   },
 
   visMeldinger: function(){    
