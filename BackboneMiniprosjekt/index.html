@@ -175,6 +175,7 @@
 	<script id="deltaker-template" type="text/x-handlebars-template">
 		<div id="deltager-{{this.id}}" class="form-inline">
 			Mob <input type="text" class = "mobilnummer-input" value="{{this.mobilnummer}}" />
+			<input type="checkbox" class = "deltaker-check" {{#if aktiv}}checked="checked"{{/if}}/>
 			<button class="close">&times;</button>
 		</div>
 	</script>
