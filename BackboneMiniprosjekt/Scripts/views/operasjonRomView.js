@@ -26,9 +26,9 @@ var app = app || {};
                         var aksjonModel = new app.AksjonModel();
                     aksjonModel.set({id: this.model.get("id")});
                     aksjonModel.fetch({
-                        success: function(response) {
-                                var visAksjon = new app.AksjonView();
-                                visAksjon.render(response);
+                        success: function() {
+                                var visAksjon = new app.AksjonView({model: aksjonModel});
+                                visAksjon.render();
                                 self.$el.append(visAksjon.$el);
                         }
                     });
@@ -38,7 +38,6 @@ var app = app || {};
                         this.render();
                         $("#operasjonRom").addClass("active");
                         $("#operasjonRomAksjon").removeClass("active");
-
                         // this.$el.append("<p>Her kommer mere...</p>");
                         this.$el.append($("#letekart-template").html());
                         var searchPartyMap = new SearchParty.SearchMap('searchparty_map_canvas',1000);

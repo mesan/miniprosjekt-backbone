@@ -1,12 +1,12 @@
-/// <reference path="../_references.js" />
+﻿/// <reference path="../_references.js" />
 var app = app || {};
 
 (function () {
     "use strict";
 
-    app.AksjonView = app.BaseAksjonView.extend({
-      //el:app.config.container,
-        tagName: "section",
+  app.AksjonView = app.BaseAksjonView.extend({
+    //el:app.config.container,
+	  tagName: "section",
 
         events: {
             'change .redigerAksjonInput': 'autoLagre',
