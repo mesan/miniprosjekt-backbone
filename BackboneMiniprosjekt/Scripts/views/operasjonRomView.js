@@ -14,24 +14,24 @@ var app = app || {};
                         this.render();
                 },
 
-                render: function() {
-                        this.$el.empty();
-                        this.$el.html(this.template);
-                },
-                renderAksjon: function() {
-                        this.render();
-                        $("#operasjonRomAksjon").addClass("active");
-                        $("#operasjonRom").removeClass("active");
-                        var self = this;
-                        var aksjonModel = new app.AksjonModel();
-                    aksjonModel.set({id: this.model.get("id")});
-                    aksjonModel.fetch({
-                        success: function() {
-                                var visAksjon = new app.AksjonView({model: aksjonModel});
-                                visAksjon.render();
-                                self.$el.append(visAksjon.$el);
-                        }
-                    });
+		render: function() {
+			this.$el.empty();
+			this.$el.html(this.template);
+		},
+		renderAksjon: function() {
+			this.render();
+			$("#operasjonRomAksjon").addClass("active");
+			$("#operasjonRom").removeClass("active");
+			var self = this;
+			var aksjonModel = new app.AksjonModel();
+		    aksjonModel.set({id: this.model.get("id")});
+		    aksjonModel.fetch({
+		    	success: function() {
+		    		var visAksjon = new app.AksjonView({model: aksjonModel});
+            self.$el.append(visAksjon.$el);
+            visAksjon.render();
+		    	}
+		    });
 
                 },
                 renderRom: function() {

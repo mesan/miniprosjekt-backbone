@@ -9,7 +9,7 @@ var app = app || {};
         container: '#js-aksjoner-container',
         ruting: {
             // legg til mer ved behov
-            aksjonSide: "/aksjon/"
+            aksjonSide: "/operasjonrom/"
         }
     };
 

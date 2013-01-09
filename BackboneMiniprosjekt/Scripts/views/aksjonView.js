@@ -9,7 +9,7 @@ var app = app || {};
 	  tagName: "section",
 
         events: {
-            'change .redigerAksjonInput': 'autoLagre',
+            'validertOk .redigerAksjonInput': 'autoLagre',
             'click #startAksjonKnapp': 'toggleAktiv'
         },
 
@@ -31,13 +31,22 @@ var app = app || {};
             } else {
                 ikon.removeClass('icon-stop').addClass('icon-play')
             }
+
+          var self = this;
+          $(this.$el).find(':input').each(function() {
+            new app.Felt({el: this, model: self.model});
+          });
       },
 
       autoLagre:function() {
         this.fyllUtAksjonsdetaljer(this.model);
-        this.model.save(null, {success:function() {
-          console.log("autolagret aksjon");
-        }});
+        if (this.model.isValid()) {
+          this.model.save(null, {success:function() {
+            console.log("autolagret aksjon");
+          }});
+        } else {
+          console.log("invalid");
+        }
       },
 
       toggleAktiv:function() {

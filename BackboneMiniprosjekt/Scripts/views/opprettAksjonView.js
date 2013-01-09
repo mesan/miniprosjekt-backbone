@@ -19,7 +19,7 @@ var app = app || {};
 
       var aksjon = new app.AksjonModel();
 
-      $('input').each(function() {
+      $("#js-aksjoner-container > form > input").each(function() {
         new app.Felt({el: this, model: aksjon});
       });
     },

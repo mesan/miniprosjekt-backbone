@@ -15,11 +15,11 @@ var app = app || {};
             return (!streng || /^\s*$/.test(streng))
           };
 
-          if (attributter['navn'] && blank(attributter.navn)) {
+          if (attributter['navn'] != undefined && blank(attributter.navn)) {
             errors['navn'] = 'feilmelding.paakrevd';
           }
 
-          if(attributter['beskrivelse'] && blank(attributter.beskrivelse)) {
+          if(attributter['beskrivelse'] != undefined && blank(attributter.beskrivelse)) {
             errors['beskrivelse'] = 'feilmelding.paakrevd'
           }
 
